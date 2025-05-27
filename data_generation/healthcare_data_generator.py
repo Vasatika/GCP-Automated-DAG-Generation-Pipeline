@@ -11,7 +11,7 @@ from google.cloud import storage
 # -----------------------------------
 # Configuration
 # -----------------------------------
-BUCKET_NAME = 'us-central1-dag-pipeline-en-d4709960-bucket'  # Your GCS bucket
+BUCKET_NAME = 'your_bucket_name_here'  # Your GCS bucket
 FOLDER_NAME = 'inbound'  # Folder inside bucket to upload to
 
 
