@@ -1,1 +1,28 @@
+{
+ "description": "Tests File-to-BQ with full load, batch on, autodetect off (read all as strings)",
+ "dag_id": "file_to_bq_healthcare_pipeline",
+ "ingestion_type": "file-to-bq",
+ "project_id": "dag-project-new",
+ "schedule_interval": "0 8 * * *",
+ "start_date": "2023-01-01",
+ "catchup": false,
+ "default_args": {
+   "owner": "vasatika",
+   "retries": 1
+ },
+ "dataset": "healthcare_dataset",
+ "source_uris": [
+   "gs://your_bucket_address_here/inbound/healthcare_patients_*.csv"
+ ],
+ "destination_project": "dag-project-new",
+ "destination_dataset": "healthcare_dataset",
+ "staging_table": "healthcare_staging",
+ "final_table": "healthcare_final",
+ "write_disposition": "WRITE_TRUNCATE",
+ "autodetect": true,
+ "partition_column": "record_created_date",
+ "full_load": true,
+ "batch_processing": true,
+ "schema": []
+}
 
