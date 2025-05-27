@@ -1,1 +1,28 @@
+{
+ "description": "Tests BQ-to-BQ append logic with partitioning, autodetect not needed",
+ "dag_id": "bq_to_bq_healthcare_pipeline",
+ "ingestion_type": "bq-to-bq",
+ "project_id": "dag-project-new",
+ "schedule_interval": "0 12 * * *",
+ "start_date": "2023-01-01",
+ "catchup": false,
+ "default_args": {
+   "owner": "vasatika",
+   "retries": 1
+ },
+ "dataset": "healthcare_dataset",
+ "source_project": "dag-project-new",
+ "source_dataset": "healthcare_dataset",
+ "source_table": "healthcare_staging",
+ "destination_project": "dag-project-new",
+ "destination_dataset": "healthcare_dataset",
+ "staging_table": "healthcare_staging",
+ "final_table": "healthcare_final",
+ "write_disposition": "WRITE_APPEND",
+ "partition_column": "record_created_date",
+ "custom_sql": "SELECT *, CURRENT_TIMESTAMP() as ingestion_time FROM `dag-project-new.healthcare_dataset.healthcare_staging`",
+ "full_load": false,
+ "batch_processing": true,
+ "schema": []
+}
 
